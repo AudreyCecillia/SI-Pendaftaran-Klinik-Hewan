@@ -2,7 +2,7 @@
 
 @section('container')
             <h5>Data Wali</h5>
-            <form class="mt-4">
+            <form class="mt-4" method="POST" action="{{route('daftar')}}">
                 <div class="row mb-3">
                     <label for="namapemilik" class="col-sm-2 col-form-label">Nama Lengkap</label>
                     <div class="col-sm-10">
