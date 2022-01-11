@@ -1,8 +1,19 @@
 @extends('layouts.main')
 
 @section('container')
+
+        @if(count($errors) > 0)
+        <div>
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
+
             <h5>Data Wali</h5>
-            <form class="mt-4" method="POST" action="{{route('daftar')}}">
+            <form class="mt-4" method="POST">
                 <div class="row mb-3">
                     <label for="namapemilik" class="col-sm-2 col-form-label">Nama Lengkap</label>
                     <div class="col-sm-10">

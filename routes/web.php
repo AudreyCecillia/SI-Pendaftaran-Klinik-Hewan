@@ -34,3 +34,6 @@ Route::get('/daftar', function () {
         "title" => "Pendaftaran Pasien"
     ]);
 });
+
+Route:: get('/data/add', 'DataController@add');
+Route:: get('/data/addProcess', 'DataController@addProcess');
