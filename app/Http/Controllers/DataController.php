@@ -9,14 +9,21 @@ use Illuminate\Support\Facades\DB;
 class DataController extends Controller
 {
     public function index(){
-        return view("data.index");
+        return view("datahewan.index");
     }
 }
 
 class DataController extends Controller
 {
     public function daftar(){
-        return view("data.daftar");
+        return view("datahewan.daftar");
+    }
+}
+
+class DataController extends Controller
+{
+    public function daftar(){
+        return view("datahewan.data");
     }
 }
 

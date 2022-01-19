@@ -22,29 +22,33 @@ Route::get('/', function () {
 
 Route::get('/home', function () {
     return view('Home', [
-        "title" => "Home",
-        "active" => 'Home'
+        "title" => "Home"
     ]);
 });
 
 Route::get('/data', function () {
     return view('Data', [
-        "title" => "Data Pasien",
-        "active" => "DataPasien"
+        "title" => "Data Pasien"
     ]);
 });
 
 Route::get('/daftar', function () {
     return view('Daftar', [
-        "title" => "Pendaftaran Pasien",
-        "active" => "DaftarPasien"
+        "title" => "Pendaftaran Pasien"
     ]);
 });
 
 Route:: get('/data/add', 'DataController@add');
 Route:: get('/data/addProcess', 'DataController@addProcess');
 
-Route::get('/login', [LoginController::class, 'index']);
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
+Route::post('/login', [LoginController::class, 'authenticate']);
+Route::post('/logout', [LoginController::class, 'logout']);
 
-Route::get('/register', [RegisterController::class, 'index']);
+Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
+
+Route::get('/dashboard',function(){
+    return view('dashboard.index');});
+// })->middleware(['auth']);
+

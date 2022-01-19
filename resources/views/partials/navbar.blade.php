@@ -16,11 +16,33 @@
           <a class="nav-link active"  href="/data">Data Pasien</a>
         </li>
       </ul>
+
       <ul class="navbar-nav ms-auto">
+        @auth 
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Welcome back, {{auth()->user()->name}}
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/dashboard"><i class="bi bi-justify">Dashboard</i></a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li>
+              <form action="/logout" method="post">
+                @csrf
+                <button type="submit" class="dropdown-item">
+                  <i class="bi bi-arrow-left-circle">Logout</i></a></li>
+                </button>
+              </form>  
+          </ul>
+        </li>
+        @else
         <li class="nav-item">
           <a href="/login" class="nav-link"><i class="bi bi-arrow-right-circle">Login</i></a>
         </li>
+        @endauth
       </ul>
+      
+
       
     </div>
   </div>
