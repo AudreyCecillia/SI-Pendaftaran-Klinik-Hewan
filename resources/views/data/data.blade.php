@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @section('container')
+
     <h1>Data Pasien</h1>
     <table class="table table-striped">
     <thead>
