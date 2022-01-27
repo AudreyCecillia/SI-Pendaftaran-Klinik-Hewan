@@ -26,15 +26,29 @@ Route::get('/home', function () {
     ]);
 });
 
-Route::get('/data', function () {
-    return view('Data', [
-        "title" => "Data Pasien"
+Route::get('/wali/create', function () {
+    return view('/wali/create', [
+        "title" => "Pendaftaran Wali"
     ]);
 });
 
-Route::get('/daftar', function () {
-    return view('Daftar', [
+
+Route::get('/pasien/create', function () {
+    return view('/pasien/create', [
         "title" => "Pendaftaran Pasien"
+    ]);
+});
+
+Route::get('/wali/index', function () {
+    return view('/wali/index', [
+        "title" => "Data Wali"
+    ]);
+});
+
+
+Route::get('/pasien/index', function () {
+    return view('/pasien/index', [
+        "title" => "Data Pasien"
     ]);
 });
 
@@ -51,4 +65,3 @@ Route::post('/register', [RegisterController::class, 'store']);
 Route::get('/dashboard',function(){
     return view('dashboard.index');});
 // })->middleware(['auth']);
-

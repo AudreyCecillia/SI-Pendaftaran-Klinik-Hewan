@@ -9,11 +9,23 @@
         <li class="nav-item">
           <a class="nav-link active"  href="/home">Home</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link active"  href="/daftar">Pendaftaran Pasien</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Pendaftaran
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="/pasien/create">Pendaftaran Pasien</a></li>
+            <li><a class="dropdown-item" href="/wali/create">Pendaftaran Wali</a></li>
+          </ul>
         </li>
-        <li class="nav-item">
-          <a class="nav-link active"  href="/data">Data Pasien</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Pendataan
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="/pasien/index">Data Pasien</a></li>
+            <li><a class="dropdown-item" href="/wali/index">Data Wali</a></li>
+          </ul>
         </li>
       </ul>
 
