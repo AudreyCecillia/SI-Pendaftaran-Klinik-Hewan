@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Wali;
 
-class DataController extends Controller
+class WaliController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,9 @@ class DataController extends Controller
      */
     public function index()
     {
-        return view(data.index);
+        $walis = Wali::all();
+
+        return view('wali.index', compact('walis'));
     }
 
     /**
@@ -23,7 +26,9 @@ class DataController extends Controller
      */
     public function create()
     {
-        Data::all;
+        $walis = Wali::all();
+
+        return view('wali.index', compact('walis'));
     }
 
     /**
@@ -32,9 +37,10 @@ class DataController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreWali Request $request)
     {
-        //
+        Wasien::create($request->all());
+        return redirect('wali');
     }
 
     /**
