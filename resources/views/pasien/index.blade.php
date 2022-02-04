@@ -4,7 +4,8 @@
 <?php 
 $no=1;
 ?>
-<h1>Data Wali</h1>
+
+<h1>Data Pasien</h1>
     <a href="/pasien/create" class="btn btn-success"> Create </a>
     <table class="table table-hover">
     <thead>

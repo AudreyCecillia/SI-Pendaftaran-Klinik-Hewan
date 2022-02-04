@@ -48,9 +48,6 @@
           </ul>
         </li>
         @else
-        <li class="nav-item">
-          <a href="/login" class="nav-link"><i class="bi bi-arrow-right-circle">Login</i></a>
-        </li>
         @endauth
       </ul>
     </div>

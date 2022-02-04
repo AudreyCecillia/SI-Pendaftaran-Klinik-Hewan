@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" href="/css/app.css">
 
-    <title>Pendaftaran |  </title>
+    <title>Pendaftaran Dokter Hewan</title>
   </head>
   <body>
 

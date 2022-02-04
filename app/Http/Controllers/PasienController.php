@@ -26,8 +26,7 @@ class PasienController extends Controller
      */
     public function create()
     {
-        $title = "Create";
-        return view('pasien.create',compact('title'));
+        return view('pasien.create');
     }
 
     /**

@@ -2,17 +2,18 @@
 
 <?php $no=1?>
 @section('container')
-  <h3>Data Makanan</h3>
+
+  <h1>Data Wali</h1>
   <a href="{{route('wali.create')}}" class="btn btn-success">Tambah Data</a>
   <br>
   <table class="table table-striped">
       <thead>
         <tr>
           <th>NO</th>
-          <th>Nama Makanan</th>
-          <th>Harga Makanan</th>
-          <th>Total Pembelian</th>
-          <th>Total Harga</th>
+          <th>Nama Pemilik</th>
+          <th>Alamat</th>
+          <th>No. Telepon</th>
+          <th>Nama Hewan</th>
           <th>Aksi</th>
           <th></th>
         </tr>

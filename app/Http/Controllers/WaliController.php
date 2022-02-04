@@ -15,7 +15,6 @@ class WaliController extends Controller
     public function index()
     {
         $walis = Wali::all();
-
         return view('wali.index', compact('walis'));
     }
 
@@ -26,6 +25,7 @@ class WaliController extends Controller
      */
     public function create()
     {
+        $title = "Create";
         return view('wali.create');
     }
 
@@ -73,7 +73,6 @@ class WaliController extends Controller
     public function update(Request $request, Wali $wali)
     {
         $wali->update($request->all());
-    
         return redirect('wali');
     }
 
