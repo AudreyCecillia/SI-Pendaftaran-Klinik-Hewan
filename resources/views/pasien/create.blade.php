@@ -2,74 +2,31 @@
 
 @section('container')
 
-        @if(count($errors) > 0)
-        <div>
-            <ul>
-                @foreach($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
+<h1>Tambah Data</h1>  
+    <form method="post" action="{{route('pasien.store')}}">
+    @csrf
+        <div class="form-group">
+            <label for="name">Nama Hewan</label>
+            <input type="text" class="form-control" name="nama_hewan">
         </div>
-        @endif
-
-<h5>Data Pasien</h5>
-                <form class="mt-4">
-                    <div class="row mb-3">
-                        <label for="namahewan" class="col-sm-2 col-form-label">Nama</label>
-                        <div class="col-sm-10">
-                        <input type="text" class="form-control" id="namahewan">
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <label for="umurhewan" class="col-sm-2 col-form-label">Umur</label>
-                        <div class="col-sm-10">
-                        <input type="text" class="form-control" id="umurhewan">
-                        </div>
-                    </div>
-                    <fieldset class="row mb-3">
-                        <legend class="col-form-label col-sm-2 pt-0">Jenis</legend>
-                        <div class="col-sm-10">
-                            <div class="row mb-3">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="gridCheck1">
-                                    <label class="form-check-label" for="gridCheck1">
-                                        Kucing
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="gridCheck2">
-                                    <label class="form-check-label" for="gridCheck2">
-                                        Anjing
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="gridCheck1">
-                                    <label class="form-check-label" for="gridCheck1">
-                                        Kelinci
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="gridCheck2">
-                                    <label class="form-check-label" for="gridCheck2">
-                                        Burung
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                    </fieldset>
-                    <div class="row mb-3">
-                        <label for="rashewan" class="col-sm-2 col-form-label">Ras</label>
-                        <div class="col-sm-10">
-                        <input type="text" class="form-control" id="rashewan">
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <label for="warnahewan" class="col-sm-2 col-form-label">Warna</label>
-                        <div class="col-sm-10">
-                        <input type="text" class="form-control" id="warnahewan">
-                        </div>
-                    </div>
-                    <button action="" type="submit" class="btn btn-primary">Save</button>
-                </form>
-
-@endsection
+        <div class="form-group">
+            <label for="name">Umur Hewan</label>
+            <input type="text" class="form-control" name="umur_hewan" >
+        </div>
+        <div class="form-group">
+            <label for="name">Jenis Hewan</label>
+            <input type="text" class="form-control" name="jenis_hewan" >
+        </div>
+        <div class="form-group">
+            <label for="name">Ras Hewan</label>
+            <input type="text" class="form-control" name="ras_hewan" >
+        </div>
+        <div class="form-group">
+            <label for="name">Nama Wali</label>
+            <input type="text" class="form-control" name="nama_wali" >
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn-success" value="Simpan">
+        </div>
+</form>
+@stop

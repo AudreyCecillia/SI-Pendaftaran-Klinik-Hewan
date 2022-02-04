@@ -1,10 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PasienController;
-use App\Http\Controllers\RegisterController;
-
+use App\Http\Controllers\WaliController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,7 +15,7 @@ use App\Http\Controllers\RegisterController;
 */
 
 Route::get('/', function () {
-    return view('Welcome');
+    return view('welcome');
 });
 
 Route::get('/home', function () {
@@ -26,42 +24,5 @@ Route::get('/home', function () {
     ]);
 });
 
-Route::get('/wali/create', function () {
-    return view('/wali/create', [
-        "title" => "Pendaftaran Wali"
-    ]);
-});
-
-
-Route::get('/pasien/create', function () {
-    return view('/pasien/create', [
-        "title" => "Pendaftaran Pasien"
-    ]);
-});
-
-Route::get('/wali/index', function () {
-    return view('/wali/index', [
-        "title" => "Data Wali"
-    ]);
-});
-
-
-Route::get('/pasien/index', function () {
-    return view('/pasien/index', [
-        "title" => "Data Pasien"
-    ]);
-});
-
-Route:: get('/data/add', 'DataController@add');
-Route:: get('/data/addProcess', 'DataController@addProcess');
-
-Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
-Route::post('/login', [LoginController::class, 'authenticate']);
-Route::post('/logout', [LoginController::class, 'logout']);
-
-Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
-Route::post('/register', [RegisterController::class, 'store']);
-
-Route::get('/dashboard',function(){
-    return view('dashboard.index');});
-// })->middleware(['auth']);
+Route::resource('/pasien', PasienController::class);
+Route::resource('/wali',WaliController::class);

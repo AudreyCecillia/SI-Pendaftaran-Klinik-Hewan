@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pasien;
 use Illuminate\Http\Request;
 
-class DataController extends Controller
+class PasienController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +14,8 @@ class DataController extends Controller
      */
     public function index()
     {
+        
         $pasiens = Pasien::all();
-
         return view('pasien.index', compact('pasiens'));
     }
 
@@ -25,9 +26,8 @@ class DataController extends Controller
      */
     public function create()
     {
-        $walies = Wali::all();
-
-        return view('pasien.index', compact('walies'));
+        $title = "Create";
+        return view('pasien.create',compact('title'));
     }
 
     /**
@@ -36,7 +36,7 @@ class DataController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorePasienRequest $request)
+    public function store(Request $request)
     {
         Pasien::create($request->all());
         return redirect('pasien');
@@ -45,10 +45,10 @@ class DataController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Pasien  $pasien
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Pasien $pasien)
     {
         //
     }
@@ -56,34 +56,36 @@ class DataController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Pasien  $pasien
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Pasien $pasien)
     {
-        //
+        return view('pasien.edit', compact('pasien'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Pasien  $pasien
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Pasien $pasien)
     {
-        //
+        $pasien->update($request->all());
+        return redirect('pasien');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Pasien  $pasien
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Pasien $pasien)
     {
-        //
+        $pasien->delete();
+        return redirect('pasien');
     }
 }

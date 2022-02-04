@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Wali;
+use Illuminate\Http\Request;
 
 class WaliController extends Controller
 {
@@ -26,9 +26,7 @@ class WaliController extends Controller
      */
     public function create()
     {
-        $walis = Wali::all();
-
-        return view('wali.index', compact('walis'));
+        return view('wali.create');
     }
 
     /**
@@ -37,19 +35,19 @@ class WaliController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreWali Request $request)
+    public function store(Request $request)
     {
-        Wasien::create($request->all());
+        Wali::create($request->all());
         return redirect('wali');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Wali  $wali
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Wali $wali)
     {
         //
     }
@@ -57,34 +55,37 @@ class WaliController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Wali  $wali
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Wali $wali)
     {
-        //
+        return view('wali.edit', compact('wali'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Wali  $wali
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Wali $wali)
     {
-        //
+        $wali->update($request->all());
+    
+        return redirect('wali');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Wali  $wali
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Wali $wali)
     {
-        //
+        $wali->delete();
+        return redirect('wali');
     }
 }

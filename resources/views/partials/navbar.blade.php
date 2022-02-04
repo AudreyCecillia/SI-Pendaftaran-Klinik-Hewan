@@ -23,8 +23,8 @@
             Pendataan
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="/pasien/index">Data Pasien</a></li>
-            <li><a class="dropdown-item" href="/wali/index">Data Wali</a></li>
+            <li><a class="dropdown-item" href="/pasien">Data Pasien</a></li>
+            <li><a class="dropdown-item" href="/wali">Data Wali</a></li>
           </ul>
         </li>
       </ul>
@@ -53,9 +53,6 @@
         </li>
         @endauth
       </ul>
-      
-
-      
     </div>
   </div>
 </nav>

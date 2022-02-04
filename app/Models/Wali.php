@@ -7,11 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Wali extends Model
 {
-    use HasFactory;
-
-    protected $guarded = ['id'];
-
-    public function Pasien(){
-        return $this->belongsTo(Pasien::class);
-    }
+    protected $table = 'datawalis';
+    protected $fillable= ['nama_wali','alamat','notelepon','nama_hewan'];
 }

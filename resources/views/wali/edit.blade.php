@@ -2,37 +2,28 @@
 
 @section('container')
 
-        @if(count($errors) > 0)
-        <div>
-            <ul>
-                @foreach($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
+<h1>Edit Wali</h1>  
+    <form method="post" action="{{route('wali.update',$wali->id)}}">
+    @csrf
+    @method('put')
+        <div class="form-group">
+            <label for="name">Nama Wali</label>
+            <input type="text" class="form-control" name="nama_wali" value="{{$wali->nama_wali}}">
         </div>
-        @endif
-
-<h5>Data Wali</h5>
-            <form class="mt-4" method="POST" action="">
-                <div class="row mb-3">
-                    <label for="namapemilik" class="col-sm-2 col-form-label">Nama Lengkap</label>
-                    <div class="col-sm-10">
-                    <input type="text" class="form-control" id="namapemilik" >
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <label for="alamatpemilik" class="col-sm-2 col-form-label">Alamat</label>
-                    <div class="col-sm-10">
-                    <input type="text" class="form-control" id="alamatpemilik">
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <label for="notelepon" class="col-sm-2 col-form-label">No.Telepon</label>
-                    <div class="col-sm-10">
-                    <input type="text" class="form-control" id="notelepon">
-                    </div>
-                </div>
-                <button action="" type="submit" class="btn btn-primary">Save</button>
-            </form>
-
-@endsection
+        <div class="form-group">
+            <label for="name">Alamat</label>
+            <input type="text" class="form-control" name="alamat" value="{{$wali->alamat}}">
+        </div>
+        <div class="form-group">
+            <label for="name">No. Telepon</label>
+            <input type="text" class="form-control" name="notelepon" value="{{$wali->notelepon}}">
+        </div>
+        <div class="form-group">
+            <label for="name">Nama Hewan</label>
+            <input type="text" class="form-control" name="nama_hewan" value="{{$wali->nama_hewan}}">
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn-success" value="Simpan">
+        </div>
+</form>
+@stop

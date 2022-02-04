@@ -1,35 +1,43 @@
 @extends('layouts.main')
 
+<?php $no=1?>
 @section('container')
-
-<h1>Data Wali</h1>
-    <table class="table table-hover">
-    <thead>
+  <h3>Data Makanan</h3>
+  <a href="{{route('wali.create')}}" class="btn btn-success">Tambah Data</a>
+  <br>
+  <table class="table table-striped">
+      <thead>
         <tr>
-        <th scope="col">No</th>
-        <th scope="col">Nama Wali</th>
-        <th scope="col">Alamat</th>
-        <th scope="col">No.Telepon</th>
-        <th scope="col">Nama Hewan</th>
-        <th scope="col">Aksi</th>
+          <th>NO</th>
+          <th>Nama Makanan</th>
+          <th>Harga Makanan</th>
+          <th>Total Pembelian</th>
+          <th>Total Harga</th>
+          <th>Aksi</th>
+          <th></th>
         </tr>
-    </thead>
-    <tbody>
+      </thead>
+      
+      <tbody>
         @foreach ($walis as $wali)
             <tr>
-            <td>{{$loop->iteration}}</td>
-            <td>{{$wali->nama_pemilik}}</td>
-            <td>{{$wali->alamat_pemilik}}</td>
-            <td>{{$wali->notelepon}}</td>
-            <td>{{$wali->nama_hewan}}</td>
-            <td>
-                <a href="/wali/edit" class="badge bg-danger">Edit</a>
-                <a href="/wali/delete" class="badge bg-warning"><span data-feather="edit">Delete</span></a>
-            </td>
-            </tr>
+              <td>{{$no++}}</td>
+              <td>{{$wali->nama_wali}}</td>
+              <td>{{$wali->alamat}}</td>
+              <td>{{$wali->notelepon}}</td>
+              <td>{{$wali->nama_hewan}}</td>
+              <td>
+                <a href="{{route('wali.edit',$wali->id)}}" class="btn btn-primary">Edit</a>
+              </td>
+              <td>
+                <form action="{{route('wali.destroy',$wali->id)}}" method="post">
+                  @csrf
+                  @method('DELETE')
+                  <button class="btn btn-danger" type="submit">Delete</button>
+                </form>
+              </td>
+            </tr>           
         @endforeach
-    @stop
-  </tbody>
-</table>
-    <a href="/home">Back to Home</a>
-@endsection
+      </tbody>
+  </table>
+@stop
